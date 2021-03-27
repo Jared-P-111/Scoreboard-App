@@ -12,7 +12,7 @@ header {
   text-align: center;
   display: flex;
   align-items: center;
-  background-color: #33012f;
+  background-color: #06aa66;
   border-bottom: solid 2px #d4caff;
 }
 
@@ -103,7 +103,7 @@ svg {
   background: #fff;
   width: 700px;
   margin: 70px auto;
-  box-shadow: 0 2px 0 #5c0354;
+  box-shadow: 0 2px 0 #2f2366;
   border-radius: 6px;
   overflow: hidden;
 }
@@ -111,12 +111,12 @@ svg {
 .player {
   display: flex;
   font-size: 1.2em;
-  border-bottom: solid 2px #eeeeee;
+  border-bottom: solid 3px #eeeeee;
   letter-spacing: 2px;
 }
 
 .player:last-of-type {
-  border-bottom-color: #33012f;
+  border-bottom-color: #2f2366;
 }
 
 .player-name:hover .remove-player {
@@ -154,6 +154,8 @@ svg {
 .stats {
   margin: 0 0 0 28px;
   font-weight: normal;
+  display: flex;
+  justify-content: space-between;
 }
 
 .stats td:first-child {
