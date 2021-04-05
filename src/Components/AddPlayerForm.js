@@ -1,35 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class AddPlayerForm extends Component {
-  state = {
-    value: '',
-  };
+const AddPlayerForm = ({ addPlayer }) => {
   //Synthetic functions that pass values up the hierarchy to App.
+  let playerInput = React.createRef();
 
-  handleSubmit = (e) => {
+  let handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addPlayer(this.state.value); //addPlayer is handleAddPlayer passed through props
-    this.setState({ value: '' });
+    addPlayer(playerInput.current.value); //addPlayer is handleAddPlayer passed through props
+    e.currentTarget.reset();
   };
 
-  handleValueChange = (e) => {
-    this.setState({ value: e.target.value });
-  };
-
-  render() {
-    console.log(this.state.value);
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter a player's name"
-          value={this.state.value}
-          onChange={this.handleValueChange}
-        />
-        <input value="Add Player" type="submit" />
-      </form>
-    );
-  }
-}
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" placeholder="Enter a player's name" ref={playerInput} />
+      <input value="Add Player" type="submit" />
+    </form>
+  );
+};
 
 export default AddPlayerForm;

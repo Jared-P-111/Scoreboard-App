@@ -18,7 +18,8 @@ header {
 
 header h1 {
   flex-grow: 1;
-  font-size: 1.5em;
+  font-size: 1.7em;
+  font-weight: bolder;
   letter-spacing: 2px;
   font-weight: normal;
 }
@@ -62,7 +63,7 @@ input[type='submit'] {
   background-color: #44338d;
   border-radius: 5px;
   border: none;
-  color: #fff;
+  color: #c7bcf8;
   letter-spacing: 2px;
   font-weight: bold;
   text-shadow: none;
@@ -73,7 +74,7 @@ input[type='submit'] {
 button,
 input[type='submit'] {
   outline: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.5s ease, color 0.2s ease;
 }
 
 /* ICONS */
@@ -103,7 +104,6 @@ svg {
   background: #fff;
   width: 700px;
   margin: 70px auto;
-  box-shadow: 0 2px 0 #2f2366;
   border-radius: 6px;
   overflow: hidden;
 }
@@ -116,7 +116,7 @@ svg {
 }
 
 .player:last-of-type {
-  border-bottom-color: #2f2366;
+  border-bottom: solid #5b45b9;
 }
 
 .player-name:hover .remove-player {
@@ -172,7 +172,7 @@ svg {
 .stopwatch {
   padding: 15px 10px 5px 10px;
   margin: -5px -10px -5px 10px;
-  background: #5b45b9;
+  background: #06aa66;
 }
 
 .stopwatch-time {
@@ -183,7 +183,7 @@ svg {
 
 .stopwatch button {
   margin: 8px 5px;
-  background-color: #44338d;
+  background-color: #0ad480;
   border-radius: 5px;
   padding: 7px 8px;
   border: none;
@@ -197,7 +197,7 @@ svg {
 .stopwatch button:hover,
 input[type='submit']:hover {
   background: #fff;
-  color: #44338d;
+  color: #06aa66;
   cursor: pointer;
 }
 

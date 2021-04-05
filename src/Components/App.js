@@ -19,31 +19,30 @@ class App extends React.Component {
           id: 2,
         },
         {
-          name: 'Samantha',
+          name: 'Aubrey',
           score: 0,
           id: 3,
         },
         {
-          name: 'Lisa',
+          name: 'Darian',
           score: 0,
           id: 4,
         },
         {
-          name: 'Franker',
-          score: 0,
-          id: 5,
-        },
-        {
           name: 'Austin',
           score: 0,
-          id: 6,
+          id: 5,
         },
       ],
     };
   }
 
+  prevPlayerId = () => {
+    let lastPlayer = this.state.players.length + 1;
+    return lastPlayer;
+  };
+
   handleScoreChange = (index, delta) => {
-    console.log('You clicked: ', this.state.players[index].name);
     this.setState((prevState) => ({
       score: (prevState.players[index].score += delta),
     }));
@@ -56,22 +55,36 @@ class App extends React.Component {
   };
 
   handleAddPlayer = (name) => {
-    this.setState({
-      players: [
-        ...this.state.players,
-        {
-          name,
-          score: 0,
-          id: (this.prevPlayerId += 1),
-        },
-      ],
+    this.setState((prevState) => {
+      return {
+        players: [
+          ...prevState.players,
+          {
+            name,
+            score: 0,
+            id: this.prevPlayerId(),
+          },
+        ],
+      };
     });
   };
 
+  handleHighScore = () => {
+    const scores = this.state.players.map((p) => p.score);
+    const highScore = Math.max(...scores);
+    if (highScore) {
+      return highScore;
+    }
+    return null;
+  };
+
   render() {
+    const highScore = this.handleHighScore();
+
     return (
       <div className="scoreboard">
         <Header title="Scoreboard" players={this.state.players} />
+
         {this.state.players.map((player, index) => (
           <Player
             playerName={player.name}
@@ -81,6 +94,7 @@ class App extends React.Component {
             index={index}
             changeScore={this.handleScoreChange}
             removePlayer={this.handleRemovePlayer}
+            isHighScore={highScore === player.score}
           />
         ))}
         <AddPlayerForm addPlayer={this.handleAddPlayer} />
